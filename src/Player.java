@@ -17,6 +17,14 @@ public class Player {
         return hpPlayer;
     }
 
+    public double getPlayersDamage(){
+        return damagePlayer;
+    }
+
+    public double getAbilityDamage(){
+        return abilityDamage;
+    }
+
     public void getDamagePlayer(double dmg){
         hpPlayer -= dmg;
     }
@@ -25,8 +33,9 @@ public class Player {
         enemy.getDamage(damagePlayer);
     }
 
-    public void PlayerDefend(double dmg){
-        hpPlayer -= dmg*0.50;
+    public void PlayerDefend(Enemy enemy){
+        double dmg = enemy.getDamageEnemy() * 0.50;
+        hpPlayer -= dmg;
     }
 
     public void useAbility(Enemy enemy){

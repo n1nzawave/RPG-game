@@ -25,6 +25,10 @@ public abstract class Enemy {
         return damageEnemy;
     }
 
+    public void EnemyDefend(double dmg){
+        hpEnemy -= dmg*0.50;
+    }
+
 }
 
 

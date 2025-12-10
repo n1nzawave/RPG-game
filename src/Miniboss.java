@@ -23,4 +23,7 @@ public class Miniboss extends Enemy {
         return damageEnemy;
     }
 
+    public void EnemyDefend(double dmg){
+        hpEnemy -= dmg*0.50;
+    }
 }

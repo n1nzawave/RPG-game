@@ -22,4 +22,8 @@ public class Boss extends Enemy{
     public double getDamageEnemy(){
         return damageEnemy;
     }
+
+    public void EnemyDefend(double dmg){
+        hpEnemy -= dmg*0.50;
+    }
 }
