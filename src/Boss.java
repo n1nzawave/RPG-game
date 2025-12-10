@@ -1,5 +1,5 @@
-public class Mob extends Enemy{
-    public Mob(double hpEnemy, double damageEnemy, String nameEnemy){
+public class Boss extends Enemy{
+    public Boss(double hpEnemy, double damageEnemy, String nameEnemy){
         super(hpEnemy, damageEnemy, nameEnemy);
     }
 

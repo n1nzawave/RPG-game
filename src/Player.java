@@ -13,8 +13,24 @@ public class Player {
         this.abilityDamage = abilityDamage;
     }
 
+    public double getHpPlayer(){
+        return hpPlayer;
+    }
+
+    public void getDamagePlayer(double dmg){
+        hpPlayer -= dmg;
+    }
+
     public void PlayerAttack(Enemy enemy){
         enemy.getDamage(damagePlayer);
+    }
+
+    public void PlayerDefend(double dmg){
+        hpPlayer -= dmg*0.50;
+    }
+
+    public void useAbility(Enemy enemy){
+        enemy.getDamage(abilityDamage);
     }
 
 }

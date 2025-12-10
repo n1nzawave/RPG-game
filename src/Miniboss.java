@@ -1,30 +1,26 @@
-public abstract class Enemy {
-    protected double hpEnemy;
-    protected double damageEnemy;
-    protected String nameEnemy;
-
-    public Enemy(double hpEnemy, double damageEnemy, String nameEnemy){
-        this.hpEnemy = hpEnemy;
-        this.damageEnemy = damageEnemy;
-        this.nameEnemy = nameEnemy;
+public class Miniboss extends Enemy {
+    public Miniboss(double hpEnemy, double damageEnemy, String nameEnemy){
+        super(hpEnemy, damageEnemy, nameEnemy);
     }
 
+    @Override
     public void enemyAttack(Player player){
         player.getDamagePlayer(damageEnemy);
     }
 
+    @Override
     public void getDamage(double dmg){
         hpEnemy -= dmg;
     }
 
+    @Override
     public double getHpEnemy(){
         return hpEnemy;
     }
 
+    @Override
     public double getDamageEnemy(){
         return damageEnemy;
     }
 
 }
-
-
