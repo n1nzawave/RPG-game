@@ -12,15 +12,20 @@ public class Battle {
         this.enemy = enemy;
     }
 
-    public void startGame(){
+    public void startBattle(){
         while (player.getHpPlayer() > 0 && enemy.getHpEnemy() > 0){
             System.out.println("Введите 1 если хотите атаковать, введите 2 если хотите заблокировать атаку или введите 3 чтобы применить способность: ");
             int choice = scanner.nextInt();
             int enemyChoice = random.nextInt(2);
             if (choice == 1){
-                player.PlayerAttack(enemy);
-                System.out.println("Вы нанесли противнику удар!");
-                System.out.println("Противник потерял " + player.getPlayersDamage() + " единиц здоровья");
+                if (enemyChoice != 1){
+                    player.PlayerAttack(enemy);
+                    System.out.println("Вы атаковали и противник потерял " + player.getPlayersDamage() + " единиц здоровья!");
+                }
+                if (enemyChoice == 1){
+                    enemy.getDamage(player.getPlayersDamage()*0.5);
+                    System.out.println("Вы нанесли противнику удар, но он использовал щит и заблокировал его!");
+                }
                 if (enemy.getHpEnemy() > 0){
                     System.out.println("У противника осталость " + enemy.getHpEnemy() + " единиц здоровья");
                 }
@@ -35,6 +40,11 @@ public class Battle {
                 player.useAbility(enemy);
                 System.out.println("Вы использовали свою способность!");
                 System.out.println("Враг потерял " + player.getAbilityDamage() + " единиц здоровья");
+                player.setAntallUseAbility(player.getAntallUseAbility()-1);
+                System.out.println("Вы использовали способность! Осталось: " + player.getAntallUseAbility());
+                if (player.getAntallUseAbility() <= 0){
+                    System.out.println("Вы больше не можете использовать способность!");
+                }
                 if (enemy.getHpEnemy() > 0){
                     System.out.println("У противника осталость " + enemy.getHpEnemy() + " единиц здоровья");
                 }
@@ -43,14 +53,16 @@ public class Battle {
                 }
             }
             if (enemy.getHpEnemy() > 0){
-
                 if (enemyChoice == 0){
-                    System.out.println("Враг атаковал и нанес " + enemy.getDamageEnemy() + " единиц урона");
+                    enemy.enemyAttack(player);
+                    System.out.println("Враг атаковал и нанес вам урон");
                     System.out.println("У вас осталось " + player.getHpPlayer() + " единиц здоровья");
-                } else if (enemyChoice == 1) {
-                    enemy.EnemyDefend(player.getPlayersDamage());
-                    System.out.println("Противник защищается");
                 }
+            }
+            if (enemy.getHpEnemy() <= 0){
+                System.out.println("Вы победили! Здоровье восстановлено на 75 единиц!");
+                player.setHpPlayer(player.getHpPlayer() + 75);
+                System.out.println("Ваше здоровье: " + player.getHpPlayer());
             }
             if (player.getHpPlayer() <= 0 || enemy.getHpEnemy() <= 0){
                 break;

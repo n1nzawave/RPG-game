@@ -29,6 +29,15 @@ public abstract class Enemy {
         hpEnemy -= dmg*0.50;
     }
 
+    public String getNameEnemy(){
+        return nameEnemy;
+    }
+
+    public void EnemyDefend(Player player){
+        double dmg = player.getPlayersDamage() * 0.50;
+        hpEnemy -= dmg;
+    }
+
 }
 
 

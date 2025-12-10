@@ -23,7 +23,9 @@ public class Boss extends Enemy{
         return damageEnemy;
     }
 
-    public void EnemyDefend(double dmg){
-        hpEnemy -= dmg*0.50;
+    @Override
+    public void EnemyDefend(Player player){
+        double dmg = player.getPlayersDamage() * 0.50;
+        hpEnemy -= dmg;
     }
 }
