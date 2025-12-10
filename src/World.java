@@ -13,10 +13,22 @@ public class World {
         return name;
     }
 
+    public static void printSlow(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            System.out.print(text.charAt(i));
+            try {
+                Thread.sleep(75);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println();
+    }
+
     public void startWorld(Player player){
         for (int i = 0; i < locations.size(); i++){
             if (player.getHpPlayer() <= 0){
-                System.out.println("Вы погибли... игра окончена");
+                printSlow("Вы погибли... игра окончена");
             }
             locations.get(i).startLocation(player);
         }
