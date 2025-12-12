@@ -2,11 +2,17 @@ public abstract class Enemy {
     protected double hpEnemy;
     protected double damageEnemy;
     protected String nameEnemy;
+    protected String phraseEnemy;
 
-    public Enemy(double hpEnemy, double damageEnemy, String nameEnemy){
+    public Enemy(double hpEnemy, double damageEnemy, String nameEnemy, String phraseEnemy){
         this.hpEnemy = hpEnemy;
         this.damageEnemy = damageEnemy;
         this.nameEnemy = nameEnemy;
+        this.phraseEnemy = phraseEnemy;
+    }
+
+    public String getPhraseEnemy(){
+        return phraseEnemy;
     }
 
     public void enemyAttack(Player player){

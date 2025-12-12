@@ -1,6 +1,12 @@
 public class Miniboss extends Enemy {
-    public Miniboss(double hpEnemy, double damageEnemy, String nameEnemy){
-        super(hpEnemy, damageEnemy, nameEnemy);
+    public Miniboss(double hpEnemy, double damageEnemy, String nameEnemy, String phraseEnemy){
+        super(hpEnemy, damageEnemy, nameEnemy, phraseEnemy);
+    }
+
+
+    @Override
+    public String getPhraseEnemy(){
+        return phraseEnemy;
     }
 
     @Override

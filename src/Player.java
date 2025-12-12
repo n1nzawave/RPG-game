@@ -21,6 +21,7 @@ public class Player {
         return antallUseAbility;
     }
 
+
     public void setAntallUseAbility(int antall){
         this.antallUseAbility = antall;
     }
@@ -31,6 +32,8 @@ public class Player {
     public void setHpPlayer(double hp){
         this.hpPlayer = hp;
     }
+
+    public void setDamagePlayer(double dmg){ this.damagePlayer = dmg; }
 
     public double getPlayersDamage(){
         return damagePlayer;

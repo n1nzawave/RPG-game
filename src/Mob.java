@@ -1,6 +1,12 @@
 public class Mob extends Enemy{
-    public Mob(double hpEnemy, double damageEnemy, String nameEnemy){
-        super(hpEnemy, damageEnemy, nameEnemy);
+    public Mob(double hpEnemy, double damageEnemy, String nameEnemy, String phraseEnemy){
+        super(hpEnemy, damageEnemy, nameEnemy, phraseEnemy);
+    }
+
+
+    @Override
+    public String getPhraseEnemy(){
+        return phraseEnemy;
     }
 
     @Override
