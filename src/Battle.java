@@ -33,11 +33,15 @@ public class Battle {
             if (choice == 1){ //что происходит при выборе атаки
                 if (enemyChoice != 1){ // если враг не выбрал блокировать, то проходит полный урон
                     player.PlayerAttack(enemy);
-                    printSlow("You attacked and the enemy lost " + player.getPlayersDamage() + " health points!");
                 }
                 if (enemyChoice == 1){ // если враг выбрал блокировать то проходит 50% урона
                     enemy.getDamage(player.getPlayersDamage()*0.5);
                     printSlow("You struck your opponent, but they used their shield to block it!");
+                }
+                if (enemyChoice == 0){
+                    player.getDamagePlayer(enemy.getDamageEnemy());
+                    printSlow("You attacked the enemy, and he attacked you.");
+                    printSlow("You have left:" + player.getHpPlayer() + " HP");
                 }
                 if (enemy.getHpEnemy() > 0){
                     printSlow("The enemy has " + enemy.getHpEnemy() + " health points");
@@ -45,10 +49,16 @@ public class Battle {
                 if (enemy.getHpEnemy() <= 0){
                     printSlow("The enemy is defeated");
                 }
-            } else if (choice == 2 && enemyChoice == 0 ) { // если игрок выбрал блокировку и враг выбрал атаку, то игрок получает только 50 процентов урона
-                player.PlayerDefend(enemy);
-                printSlow("You blocked the shot!");
-                printSlow("You absorbed 50% of the damage with your shield!");
+            } else if (choice == 2) {// если игрок выбрал блокировку и враг выбрал атаку, то игрок получает только 50 процентов урона
+                if (enemyChoice == 0){
+                    player.PlayerDefend(enemy);
+                    printSlow("You blocked the shot!");
+                    printSlow("You absorbed 50% of the damage with your shield!");
+                    printSlow("Your HP: " + player.getHpPlayer());
+                }
+                if (enemyChoice == 1){
+                    printSlow("The enemy, like you, decided to block the attack. No one was hurt.");
+                }
             } else if (choice == 3) {
                 if (enemyChoice != 1){
                     if (player.getAntallUseAbility() <= 0){
@@ -75,17 +85,13 @@ public class Battle {
                     printSlow("The enemy is defeated");
                 }
             }
-            if (enemy.getHpEnemy() > 0){
-                if (enemyChoice == 0){ // если враг выбрал атаку, то игрок теряет здоровье
-                    enemy.enemyAttack(player);
-                    printSlow("The enemy attacked and damaged you.");
-                    printSlow("You have left " + player.getHpPlayer() + " health points");
-                }
-            }
             if (enemy.getHpEnemy() <= 0){ // если у противника здоровья меньше или равно 0, то игрок побеждает и восстанавливает 75 здоровья
                 printSlow("You have won! Your health has been restored by 35 points!");
                 player.setHpPlayer(player.getHpPlayer() + 35);
+                printSlow("You have won! Your attack power has been increased by 1!");
                 player.setDamagePlayer(player.getPlayersDamage() + 1.0);
+                printSlow("You have won and receive +1 ability point!");
+                printSlow("Now you have: " + (player.getAntallUseAbility()+1) + " ability points");
                 printSlow("Your HP: " + player.getHpPlayer());
             }
             if (player.getHpPlayer() <= 0 || enemy.getHpEnemy() <= 0){

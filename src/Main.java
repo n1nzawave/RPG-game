@@ -55,13 +55,11 @@ public class Main {
         //NPC
         NPC eldrin = new NPC("Eldrin the Lightbringer", "Hello, traveler...\n" + "Do you still have light inside you? I haven't seen that in many years.\n"
                 + "You: I don't know what's going on, but I want to understand.\n" + "Eldrin: Then proceed. Darkness will test you.");
-        NPC BlindDryad = new NPC("Blind Dryad", "Your light... it hurts my ears... but I feel that it is still warm.\n" + "You: Where to go next?\n" + "Blind Dryad: Иди глубже. Там — источник гниения.");
-        NPC AshPriest = new NPC("Ash Priest",
-                "Lightbearer... the flames whisper your name.\n"
+        NPC BlindDryad = new NPC("Blind Dryad", "Your light... it hurts my ears... but I feel that it is still warm.\n" + "You: Where to go next?\n" + "Blind Dryad: Go deeper. That's where the source of decay is.");
+        NPC AshPriest = new NPC("Ash Priest", "Lightbearer... the flames whisper your name.\n"
                         + "You: What happened here?\n"
                         + "Ash Priest: Fire cleansed the world, but darkness fed the flames.");
-        NPC WhisperingShade = new NPC("Whispering Shade",
-                "You carry light... but down here, light becomes a curse.\n"
+        NPC WhisperingShade = new NPC("Whispering Shade","You carry light... but down here, light becomes a curse.\n"
                         + "You: Then why am I still alive?\n"
                         + "Shade: Because the abyss is curious...");
 

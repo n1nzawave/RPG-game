@@ -26,7 +26,7 @@ public class World {
         for (int i = 0; i < text.length(); i++) {
             System.out.print(text.charAt(i));
             try {
-                Thread.sleep(75);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -35,8 +35,8 @@ public class World {
     }
 
     public void startWorld(Player player){
+        printSlow("You have moved to the world: " + getWorldName() + "\n" + getWorldDescription());
         for (int i = 0; i < locations.size(); i++){
-            printSlow("You have moved to the world: " + getWorldName() + "\n" + getWorldDescription());
             if (player.getHpPlayer() <= 0){
                 printSlow("You have perished... the game is over.");
                 break;
