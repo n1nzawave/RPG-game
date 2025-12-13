@@ -33,9 +33,10 @@ public class Menu {
 
         // Проходим по мирам
         for (int i = 0; i < worlds.size(); i++) {
-            if (player.getHpPlayer() <= 0) {
-                printSlow("You have died... Game over.");
-                System.exit(0);
+            boolean worldCompleted = worlds.get(i).startWorld(player);
+            if (!worldCompleted) {
+                printSlow("You have perished... the game is over");
+                return;
             }
             worlds.get(i).startWorld(player);
         }

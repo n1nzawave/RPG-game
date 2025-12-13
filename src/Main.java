@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //Игрок
-        Player p1 = new Player(100.0,15.0,"Воин","Ураган ударов",25, 10);
+        Player p1 = new Player(11.0,15.0,"","Light propagation",25, 10);
         // враги мир1
         Mob Shadowling = new Mob(20.0, 5.0, "Shadowling", "Warmth... light... give it to me...");
         Mob RavagedSpirit = new Mob(25.0, 6.0,"Ravaged Spirit", "We are darkness. You are a mistake.");

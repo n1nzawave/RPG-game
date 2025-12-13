@@ -60,7 +60,7 @@ public class Battle {
                     printSlow("The enemy, like you, decided to block the attack. No one was hurt.");
                 }
             } else if (choice == 3) {
-                if (enemyChoice != 1){
+                if (enemyChoice == 0){
                     if (player.getAntallUseAbility() <= 0){
                         printSlow("You can no longer use the ability!");
                         continue;
@@ -69,6 +69,10 @@ public class Battle {
                     printSlow("You used your ability!");
                     player.setAntallUseAbility(player.getAntallUseAbility()-1);
                     printSlow("You have used your ability! Remaining: " + player.getAntallUseAbility());
+                    printSlow("The enemy has attacked you!");
+                    player.getDamagePlayer(enemy.getDamageEnemy());
+                    printSlow("You have left:" + player.getHpPlayer() + " HP");
+                    printSlow("The enemy has " + enemy.getHpEnemy() + " health points");
                 }
                 if (enemyChoice == 1){
                     if (player.getAntallUseAbility() <= 0){
@@ -91,7 +95,7 @@ public class Battle {
                 printSlow("You have won! Your attack power has been increased by 1!");
                 player.setDamagePlayer(player.getPlayersDamage() + 1.0);
                 printSlow("You have won and receive +1 ability point!");
-                printSlow("Now you have: " + (player.getAntallUseAbility()+1) + " ability points");
+                printSlow("Now you have: " + ((player.getAntallUseAbility())+1) + " ability points");
                 printSlow("Your HP: " + player.getHpPlayer());
             }
             if (player.getHpPlayer() <= 0 || enemy.getHpEnemy() <= 0){
