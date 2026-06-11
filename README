@@ -1,2 +1,88 @@
-This project was created as a learning exercise.
-Some parts may be messy — the goal was to practice OOP and game logic.
+Слушай, отличная текстовая RPG! Сюжетка с разветвлением в конце и атмосферой угасающего света — прям классика мрачного фэнтези в духе Dark Souls.
+
+По поводу оценки самого кода: ты отлично применил **ООП**. У тебя есть абстрактный класс `Enemy`, от которого наследуются `Mob`, `Miniboss` и `Boss` — это классическое использование полиморфизма. Логика пошагового боя расписана подробно, и идея с разделением на миры и локации через списки (`ArrayList`) работает железно.
+
+Пара моментов, которые можно улучшить в будущем (чисто для роста):
+
+* **Избыточное переопределение:** В классах `Boss`, `Miniboss` и `Mob` методы `getHpEnemy()`, `getDamageEnemy()` и другие полностью дублируют поведение родительского класса `Enemy`. Их можно вообще удалить из классов-наследников, Java автоматически подтянет их из родителя.
+* **Баг с двойным вызовом:** В классе `Menu` внутри цикла прохождения миров строчка `worlds.get(i).startWorld(player);` вызывается дважды (один раз внутри `if`, второй раз сразу после него). Из-за этого один и тот же мир может запускаться повторно.
+
+А теперь держи чистый, профессиональный README.md для этого репозитория — без лишних звездочек в тексте и без смайликов, как ты и просил.
+
+---
+
+# Stuck in Darkness
+
+Stuck in Darkness is a text-based, turn-based RPG console game developed in Java. The game features an atmospheric dark fantasy narrative where the player embodies a bearer of light fighting through multiple corrupt worlds to uncover the nature of darkness and face its ultimate ruler.
+
+---
+
+## Features
+
+* Turn-Based Combat System: Dynamic battle choices including basic attacks, shielding blocks, and powerful limited-use special abilities.
+* Polymorphic Enemy System: Diverse tiers of opponents including regular Mobs, challenging Minibosses, and unique World Bosses branching from a unified abstract implementation.
+* Structured Progression: Linear progression through five distinct atmospheric worlds, each containing dedicated sub-locations, distinct encounters, and unique NPC dialogues.
+* Interactive Narrative: Immersive slow-print text rendering to simulate a classic retro terminal quest experience, concluding with a major moral choice that determines the fate of the game universe.
+
+---
+
+## Tech Stack
+
+* Language: Java 17 (compatible with Java 8 and above)
+* Core Libraries: Java Standard Utility Library (java.util.Scanner, java.util.Random, java.util.ArrayList)
+
+---
+
+## Architecture Overview
+
+* Main: The main entry point that initializes the player, configures game elements, constructs worlds with localized enemy spawns, and bootstraps the main menu.
+* Menu: Manages the game lifecycle, intro cutscenes, player state validation across acts, and execution of the final multi-ending dialogue logic.
+* World and Location: Structural containers managing navigation flow, sequence transitions, narrative triggers, and initiation of battle sequences.
+* Battle: Encapsulates the core turn-based execution loop, evaluating randomized enemy actions against structural player inputs, and processing win/loss rewards.
+* Player and Enemy: Domain entities containing attribute state management, damage computation formulas, and transaction state logic for hit validation.
+
+---
+
+## Game Mechanics and Combat Rules
+
+During a battle turn, the player selects one of three strategic actions:
+
+1. Attack (Unlimited): Inflicts full damage if the enemy attacks, or 50% damage if the enemy chooses to block.
+2. Block (Unlimited): Absorbs 50% of incoming enemy damage if the enemy attacks. No damage is dealt if both entities choose to block.
+3. Ability (Limited charges): Deals massive damage. Inflicts 75% damage if the enemy attempts to block.
+
+Defeating an enemy restores 35 Health Points, permanently increases base attack power by 1.0, and grants +1 Ability Point.
+
+---
+
+## Installation and Execution
+
+### Prerequisites
+
+Ensure you have the Java Development Kit (JDK) installed on your system.
+
+### Compilation
+
+Compile all source files from your project root directory:
+
+```bash
+javac *.java
+
+```
+
+### Execution
+
+Run the compiled application:
+
+```bash
+java Main
+
+```
+
+---
+
+## Future Roadmap
+
+* Decouple battle state logic to fully eliminate duplicate code definitions inside subclasses.
+* Fix sequential execution loops inside the world navigation lifecycle layer.
+* Introduce an interactive terminal inventory system allowing players to collect and equip weapon drops.
