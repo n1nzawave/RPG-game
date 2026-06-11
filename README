@@ -6,17 +6,17 @@ Stuck in Darkness is a text-based, turn-based RPG console game developed in Java
 
 Features
 
-* Turn-Based Combat System: Dynamic battle choices including basic attacks, shielding blocks, and powerful limited-use special abilities.
-* Polymorphic Enemy System: Diverse tiers of opponents including regular Mobs, challenging Minibosses, and unique World Bosses branching from a unified abstract implementation.
-* Structured Progression: Linear progression through five distinct atmospheric worlds, each containing dedicated sub-locations, distinct encounters, and unique NPC dialogues.
-* Interactive Narrative: Immersive slow-print text rendering to simulate a classic retro terminal quest experience, concluding with a major moral choice that determines the fate of the game universe.
+Turn-Based Combat System: Dynamic battle choices including basic attacks, shielding blocks, and powerful limited-use special abilities.
+Polymorphic Enemy System: Diverse tiers of opponents including regular Mobs, challenging Minibosses, and unique World Bosses branching from a unified abstract implementation.
+Structured Progression: Linear progression through five distinct atmospheric worlds, each containing dedicated sub-locations, distinct encounters, and unique NPC dialogues.
+Interactive Narrative: Immersive slow-print text rendering to simulate a classic retro terminal quest experience, concluding with a major moral choice that determines the fate of the game universe.
 
 
 
 Tech Stack
 
-* Language: Java 17 (compatible with Java 8 and above)
-* Core Libraries: Java Standard Utility Library (java.util.Scanner, java.util.Random, java.util.ArrayList)
+Language: Java 17 (compatible with Java 8 and above)
+Core Libraries: Java Standard Utility Library (java.util.Scanner, java.util.Random, java.util.ArrayList)
 
 
 
