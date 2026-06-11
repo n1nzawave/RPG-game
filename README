@@ -1,36 +1,36 @@
-# Stuck in Darkness
+Stuck in Darkness
 
 Stuck in Darkness is a text-based, turn-based RPG console game developed in Java. The game features an atmospheric dark fantasy narrative where the player embodies a bearer of light fighting through multiple corrupt worlds to uncover the nature of darkness and face its ultimate ruler.
 
----
 
-## Features
+
+Features
 
 * Turn-Based Combat System: Dynamic battle choices including basic attacks, shielding blocks, and powerful limited-use special abilities.
 * Polymorphic Enemy System: Diverse tiers of opponents including regular Mobs, challenging Minibosses, and unique World Bosses branching from a unified abstract implementation.
 * Structured Progression: Linear progression through five distinct atmospheric worlds, each containing dedicated sub-locations, distinct encounters, and unique NPC dialogues.
 * Interactive Narrative: Immersive slow-print text rendering to simulate a classic retro terminal quest experience, concluding with a major moral choice that determines the fate of the game universe.
 
----
 
-## Tech Stack
+
+Tech Stack
 
 * Language: Java 17 (compatible with Java 8 and above)
 * Core Libraries: Java Standard Utility Library (java.util.Scanner, java.util.Random, java.util.ArrayList)
 
+
+
+Architecture Overview
+
+Main: The main entry point that initializes the player, configures game elements, constructs worlds with localized enemy spawns, and bootstraps the main menu.
+Menu: Manages the game lifecycle, intro cutscenes, player state validation across acts, and execution of the final multi-ending dialogue logic.
+World and Location: Structural containers managing navigation flow, sequence transitions, narrative triggers, and initiation of battle sequences.
+Battle: Encapsulates the core turn-based execution loop, evaluating randomized enemy actions against structural player inputs, and processing win/loss rewards.
+Player and Enemy: Domain entities containing attribute state management, damage computation formulas, and transaction state logic for hit validation.
+
 ---
 
-## Architecture Overview
-
-* Main: The main entry point that initializes the player, configures game elements, constructs worlds with localized enemy spawns, and bootstraps the main menu.
-* Menu: Manages the game lifecycle, intro cutscenes, player state validation across acts, and execution of the final multi-ending dialogue logic.
-* World and Location: Structural containers managing navigation flow, sequence transitions, narrative triggers, and initiation of battle sequences.
-* Battle: Encapsulates the core turn-based execution loop, evaluating randomized enemy actions against structural player inputs, and processing win/loss rewards.
-* Player and Enemy: Domain entities containing attribute state management, damage computation formulas, and transaction state logic for hit validation.
-
----
-
-## Game Mechanics and Combat Rules
+Game Mechanics and Combat Rules
 
 During a battle turn, the player selects one of three strategic actions:
 
@@ -42,13 +42,13 @@ Defeating an enemy restores 35 Health Points, permanently increases base attack 
 
 ---
 
-## Installation and Execution
+Installation and Execution
 
-### Prerequisites
+Prerequisites
 
 Ensure you have the Java Development Kit (JDK) installed on your system.
 
-### Compilation
+Compilation
 
 Compile all source files from your project root directory:
 
@@ -57,7 +57,7 @@ javac *.java
 
 ```
 
-### Execution
+Execution
 
 Run the compiled application:
 
@@ -68,8 +68,8 @@ java Main
 
 ---
 
-## Future Roadmap
+Future Roadmap
 
-* Decouple battle state logic to fully eliminate duplicate code definitions inside subclasses.
-* Fix sequential execution loops inside the world navigation lifecycle layer.
-* Introduce an interactive terminal inventory system allowing players to collect and equip weapon drops.
+Decouple battle state logic to fully eliminate duplicate code definitions inside subclasses.
+Fix sequential execution loops inside the world navigation lifecycle layer.
+Introduce an interactive terminal inventory system allowing players to collect and equip weapon drops.
